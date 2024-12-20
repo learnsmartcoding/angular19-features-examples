@@ -1,0 +1,18 @@
+<div class="container my-5">
+  <h2 class="mb-4">Welcome to Movie Finder</h2>
+  <div class="list-group">
+    <a class="list-group-item list-group-item-action" routerLink="/search/movies" routerLinkActive="active">
+      <strong>Search Movies</strong>
+      <p class="mb-0 text-muted">Find your favorite movies by searching for titles.</p>
+    </a>
+    <br>
+    <a class="list-group-item list-group-item-action" routerLink="/search/movie/recommendation"
+      routerLinkActive="active">
+      <strong>Movie Recommendations</strong>
+      <p class="mb-0 text-muted">Get personalized movie recommendations based on your preferences.</p>
+    </a>
+  </div>
+  <hr>
+</div>
+
+<router-outlet />

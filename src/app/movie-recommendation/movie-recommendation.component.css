@@ -1,0 +1,17 @@
+.card-header {
+    background: linear-gradient(45deg, #28a745, #218838);
+  }
+  .form-control::placeholder {
+    color: #6c757d;
+    font-style: italic;
+  }
+  .list-group-item {
+    border-left: 4px solid #28a745;
+  }
+  .list-group-item strong {
+    font-size: 1.1rem;
+  }
+  .badge {
+    font-size: 0.9rem;
+  }
+  

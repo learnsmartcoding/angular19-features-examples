@@ -1,0 +1,59 @@
+<div class="container my-5">
+    <div class="card shadow-sm">
+      <div class="card-header bg-success text-white">
+        <h3 class="card-title mb-0">Movie Recommendations</h3>
+      </div>
+      <div class="card-body">
+        <form class="row g-3">
+          <div class="col-md-4">
+            <label for="genreInput" class="form-label">Genre</label>
+            <input
+              type="text"
+              id="genreInput"
+              class="form-control"
+              (input)="updateGenre($event)"
+              placeholder="e.g., Sci-Fi"
+            />
+          </div>
+          <div class="col-md-4">
+            <label for="yearInput" class="form-label">Year</label>
+            <input
+              type="text"
+              id="yearInput"
+              class="form-control"
+              (input)="updateYear($event)"
+              placeholder="e.g., 2010"
+            />
+          </div>
+          <div class="col-md-4">
+            <label for="ratingInput" class="form-label">Rating</label>
+            <input
+              type="text"
+              id="ratingInput"
+              class="form-control"
+              (input)="updateRating($event)"
+              placeholder="e.g., 8"
+            />
+          </div>
+        </form>
+  
+        <div class="mt-4">
+          <div *ngIf="recommendations$ | async as recommendations">
+            <ul class="list-group">
+              <li *ngFor="let movie of recommendations" class="list-group-item d-flex justify-content-between align-items-center">
+                <div>
+                  <strong>{{ movie.title }}</strong>
+                  <span class="text-muted">({{ movie.year }})</span> - {{ movie.genre }}
+                </div>
+                <span class="badge bg-primary rounded-pill">Rating: {{ movie.rating }}</span>
+              </li>
+            </ul>
+          </div>
+          <div *ngIf="!(recommendations$ | async)?.length" class="text-center text-muted mt-4">
+            No recommendations available. Please update your preferences.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

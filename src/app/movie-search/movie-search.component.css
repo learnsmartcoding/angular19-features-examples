@@ -1,0 +1,23 @@
+.error {
+    color: red;
+    margin-top: 10px;
+}
+
+.card-header {
+    background: linear-gradient(45deg, #007bff, #0056b3);
+}
+
+.form-control::placeholder {
+    color: #6c757d;
+    font-style: italic;
+}
+
+.list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list-group-item strong {
+    color: #212529;
+}
