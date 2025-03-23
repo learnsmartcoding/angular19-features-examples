@@ -1,0 +1,91 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <!-- Brand/Logo -->
+      <a class="navbar-brand" href="#">SmartLearn by Karthik</a>
+  
+      <!-- Toggler for responsive design -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <!-- Navbar Links -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <!-- Home -->
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/home']" routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }">Home</a>
+          </li>
+  
+        
+          <!-- Update Profile -->
+          <li class="nav-item" *ngIf="loginDisplay">
+            <a class="nav-link" [routerLink]="['/user/update-profile']" routerLinkActive="router-link-active">Update
+              Profile</a>
+          </li>
+          <li class="nav-item" *ngIf="loginDisplay">
+            <a class="nav-link" [routerLink]="['/user/chat']" routerLinkActive="router-link-active">Chat</a>
+          </li>
+          <!-- Requests Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="requestsDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Signals
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="requestsDropdown">
+              <li><a class="dropdown-item" [routerLink]="['/what-are-signals']" routerLinkActive="active">what are signals</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/contact-us']" routerLinkActive="active">ContactUs Reactive</a></li>
+            </ul>
+          </li>
+  
+      
+  
+          <!-- About and Contact -->
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/about-us']" routerLinkActive="active">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/contact-us']" routerLinkActive="active">Contact Us</a>
+          </li>
+  
+          <!-- Pricing -->
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/plans-and-price']" routerLinkActive="active">Plans &
+              Pricing</a>
+          </li>
+        </ul>
+  
+        <!-- Search Box -->
+        <form class="d-flex me-3">
+          <input class="form-control me-2" type="search" placeholder="Search courses" aria-label="Search" />
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+  
+        <!-- Login/Logout -->
+        <ul class="navbar-nav">
+          <li class="nav-item d-flex align-items-center">
+             <!-- Profile Picture -->
+             <img
+             *ngIf="profilePictureUrl; else defaultAvatar"
+             [src]="profilePictureUrl"
+             alt="Profile Picture"
+             class="rounded-circle"
+             style="width: 40px; height: 40px; object-fit: cover;"
+           />
+  
+           <!-- Default Avatar -->
+           <ng-template #defaultAvatar>
+             <img
+               src="../../../../assets/images/default-avatar.png"
+               alt="Default Avatar"
+               class="rounded-circle"
+               style="width: 40px; height: 40px; object-fit: cover;"
+             />
+           </ng-template>
+           
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>

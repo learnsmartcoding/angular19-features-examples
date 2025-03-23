@@ -1,0 +1,159 @@
+<br>
+<div class="signals-explanation">
+    <h1>Understanding Angular Signals</h1>
+
+    <h2>What are Angular Signals?</h2>
+    <p>
+        Angular Signals are a new way to manage state inside Angular applications.
+        Think of signals as special variables that can automatically update other parts of your app when their value
+        changes.
+        This makes it easier to keep your app's UI in sync with its data.
+    </p>
+
+    <h2>How are Signals Different from Traditional Ways?</h2>
+    <p>
+        In traditional Angular apps, developers use <code>Observables</code> or <code>EventEmitters</code> to manage
+        state and communicate changes.
+        These tools can be complex and require manual subscription and unsubscription.
+        Signals make this process simpler by automatically keeping track of changes.
+    </p>
+
+    <h2>Why Use Signals?</h2>
+    <ul>
+        <li><strong>Simplicity:</strong> Signals automatically update your app whenever their value changes, so you
+            don’t need to worry about subscriptions.</li>
+        <li><strong>Performance:</strong> Signals are optimized to update only the parts of the app that need to be
+            changed, making your app faster.</li>
+        <li><strong>State Management:</strong> Signals let you manage and update state directly in your components
+            without worrying about other Angular tools.</li>
+    </ul>
+
+    <h2>How Do Signals Work?</h2>
+    <p>
+        Signals can hold a value, like a number or a string. When this value changes, any part of your app that uses
+        this signal will automatically update.
+    </p>
+    <p>
+        Here’s a simple analogy: Imagine a signal is like a light switch. When you flip the switch (update the value),
+        all the rooms (parts of your app) that need the light (value) will automatically turn on (update).
+    </p>
+
+    <h2>How to Use Signals in Angular?</h2>
+    <p>
+        To use signals in Angular, you import the <code>signal</code> function and create a signal.
+        After that, you can get its value or update it.
+    </p>
+
+    <h3>1. Creating a Signal</h3>
+    <p>Here's how you create a simple signal:</p>
+    <pre><code>const count = signal(0);</code></pre>
+    <p>This creates a signal named <code>count</code> with an initial value of <code>0</code>.</p>
+
+    <h3>2. Reading the Signal Value</h3>
+    <p>To get the current value of the signal, just call it like a function:</p>
+    <pre><code>console.log(count());</code></pre>
+
+    <h3>3. Updating the Signal Value</h3>
+    <p>To change the value of the signal, use the <code>set</code> method:</p>
+    <pre><code>count.set(count() + 1);</code></pre>
+    <p>This will increment the value of the <code>count</code> signal by 1.</p>
+
+    <h2>Signals in Angular Templates</h2>
+    <p>
+        Once you have signals in your component, you can easily use them in Angular templates. When the signal value
+        changes,
+        the part of the UI that depends on it will automatically update.
+    </p>
+
+    <h3>Computed Signals</h3>
+    <p>
+        Computed signals are signals whose values are derived from other signals. These are similar to derived state or
+        computed properties in other frameworks. They allow you to create values that depend on other signals, and
+        Angular will automatically update them whenever the base signals change.
+    </p>
+    <p><strong>Example of a computed signal:</strong></p>
+    <pre><code class="html">
+    const baseSignal = signal(5);
+    const computedSignal = computed(() => baseSignal() * 2); // Automatically updates when baseSignal changes
+  </code></pre>
+    <p>
+        In this example, the computed signal will always return twice the value of the `baseSignal`. Any time
+        `baseSignal` is updated, `computedSignal` will automatically be recalculated and updated in the UI.
+    </p>
+
+    <h3>Using Effect with Signals</h3>
+    <p>Effects allow you to run side-effects when signals change. For example, you might want to log or perform some
+        operations when a signal's value updates.</p>
+    <pre><code [innerHTML]="codeSnippet"></code></pre>
+
+    <h3>Error Handling with Signals</h3>
+    <p>In certain cases, you might want to handle errors or provide fallback values when a signal contains invalid data.
+    </p>
+    <pre><code [innerHTML]="errorHandlingSnippet"></code></pre>
+
+    <h3>Managing Multiple Signals</h3>
+    <p>Signals can also work together to represent more complex states. Here's an example of two signals working
+        together to manage a shopping cart.</p>
+    <pre><code [innerHTML]="manageMultipleSignalsSnippet"></code></pre>
+
+
+    <h3>Combining Effect with Computed Signals</h3>
+    <p>Sometimes you might want to react to changes in computed signals. You can use `effect` to trigger side-effects
+        based on these computed values.</p>
+    <pre><code [innerHTML]="effectWithComputedSnippet"></code></pre>
+
+    <h3>Resetting or Clearing Signals</h3>
+    <p>There may be situations where you need to reset a signal’s value to its initial state.</p>
+    <pre><code class="html">
+  const counter = signal(10);
+  
+  // Reset counter
+  counter.set(0);
+  console.log(counter()); // Output: 0
+</code></pre>
+
+
+
+    <h3>Example of Using a Signal in Angular</h3>
+    <p>
+        Here's how to use a signal in an Angular component:
+    </p>
+    <pre><code class="html">
+    counter = signal(0); // Declare a signal
+
+    increment() 
+      this.counter.set(this.counter() + 1); // Update the signal value
+      </code></pre>
+    <h3>Computed Signals in Templates</h3>
+    <p>
+        You can use computed signals directly in your templates without needing additional logic. The view will
+        automatically reflect the updated values whenever the computed signal changes.
+    </p>
+
+    <pre><code class="html">
+    <div> computedSignal() </div>  <!-- Automatically updates when the base signal changes -->
+  </code></pre>
+
+
+    <h2>Key Takeaways</h2>
+    <ul>
+        <li>Signals are a simple way to manage state in Angular applications.</li>
+        <li>They automatically update your UI whenever the state changes.</li>
+        <li>Signals reduce the need for subscriptions and manual state management.</li>
+        <li>Signals can be used for both simple and complex state management in Angular.</li>
+    </ul>
+
+    <h2>Advantages of Using Signals</h2>
+    <ul>
+        <li>Automatic UI updates: No need for subscriptions and change detection logic.</li>
+        <li>Easy state management: Signals simplify how you manage data across your application.</li>
+        <li>Optimized performance: Signals only update the parts of the UI that are affected.</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+    <p>
+        Angular Signals offer a new, simpler, and more efficient way to manage state and keep your application in sync.
+        Whether you're managing simple counters or complex data, signals can help make your code more maintainable and
+        performant.
+    </p>
+</div>
