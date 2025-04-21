@@ -1,0 +1,11 @@
+<h2>Debug Demo</h2>
+
+<p><strong>Total Users:</strong> {{ users.length }}</p>
+<p><strong>Active Users:</strong> {{ activeUsers.length }}</p>
+<p><strong>Average Age:</strong> {{ averageAge }}</p>
+
+<ul>
+  <li *ngFor="let user of activeUsers">
+    {{ user.name }} ({{ user.age }} years)
+  </li>
+</ul>
