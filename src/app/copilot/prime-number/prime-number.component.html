@@ -1,0 +1,29 @@
+<div class="prime-checker-container" style="max-width: 400px; margin: 2rem auto; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px #ccc;">
+    <h2>Prime Number Checker</h2>
+    <form (ngSubmit)="checkPrime()" #primeForm="ngForm">
+        <div class="form-group" style="margin-bottom: 1rem;">
+            <label for="numberInput">Enter a number:</label>
+            <input
+                type="number"
+                id="numberInput"
+                name="numberInput"
+                class="form-control"
+                [(ngModel)]="userNumber"
+                required
+                min="1"
+                style="width: 100%; padding: 0.5rem; margin-top: 0.5rem;"
+            />
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!primeForm.form.valid" style="width: 100%;">Check</button>
+    </form>
+    <div *ngIf="isPrime !== null" style="margin-top: 1rem;">
+        <span *ngIf="isPrime; else notPrime" style="color: green; font-weight: bold;">
+            {{ userNumber }} is a prime number!
+        </span>
+        <ng-template #notPrime>
+            <span style="color: red; font-weight: bold;">
+                {{ userNumber }} is not a prime number.
+            </span>
+        </ng-template>
+    </div>
+</div>

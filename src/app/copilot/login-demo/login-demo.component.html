@@ -1,0 +1,66 @@
+<div class="container d-flex justify-content-center align-items-center min-vh-100 bg-light">
+    <div class="card shadow-lg p-4" style="min-width: 350px; max-width: 400px; width: 100%;">
+        <div class="text-center mb-4">
+            <img src="https://img.icons8.com/ios-filled/100/000000/user-male-circle.png" alt="User Icon" width="64" class="mb-2">
+            <h3 class="mb-0">Login to Your Account</h3>
+            <small class="text-muted">Please enter your credentials</small>
+        </div>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="form-group mb-3">
+                <label for="username" class="form-label fw-bold">Username</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-person"></i></span>
+                    <input
+                        type="text"
+                        id="username"
+                        formControlName="username"
+                        class="form-control"
+                        placeholder="Enter username"
+                        [ngClass]="{'is-invalid': form.get('username')?.invalid && form.get('username')?.touched}"
+                    />
+                </div>
+                <div
+                    *ngIf="form.get('username')?.invalid && form.get('username')?.touched"
+                    class="invalid-feedback d-block"
+                >
+                    Username is required
+                </div>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="password" class="form-label fw-bold">Password</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                    <input
+                        type="password"
+                        id="password"
+                        formControlName="password"
+                        class="form-control"
+                        placeholder="Enter password"
+                        [ngClass]="{'is-invalid': form.get('password')?.invalid && form.get('password')?.touched}"
+                    />
+                </div>
+                <div
+                    *ngIf="form.get('password')?.invalid && form.get('password')?.touched"
+                    class="invalid-feedback d-block"
+                >
+                    Password is required
+                </div>
+            </div>
+
+            <button
+                type="submit"
+                [disabled]="form.invalid"
+                class="btn btn-primary w-100 fw-bold"
+            >
+                <i class="bi bi-box-arrow-in-right me-2"></i>Login
+            </button>
+            <div *ngIf="errorMessage" class="alert alert-danger mt-3 mb-0 py-2 text-center">
+                {{ errorMessage }}
+            </div>
+            <div class="text-center mt-3">
+                <a href="#" class="small text-decoration-none">Forgot password?</a>
+            </div>
+        </form>
+    </div>
+</div>
