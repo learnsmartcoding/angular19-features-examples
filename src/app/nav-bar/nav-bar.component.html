@@ -39,7 +39,16 @@
             </ul>
           </li>
   
-      
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="requestsDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              NgRx
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="requestsDropdown">
+              <li><a class="dropdown-item" [routerLink]="['/ngrx-state-management/banking-choice-example']" routerLinkActive="active">NgRx - Banking Example</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/ngrx-state-management/job-screener-example']" routerLinkActive="active">NgRx - Job Screener Example</a></li>
+            </ul>
+          </li>
   
           <!-- About and Contact -->
           <li class="nav-item">

@@ -4,6 +4,8 @@ import { MovieRecommendationComponent } from './movie-recommendation/movie-recom
 import { HomeComponent } from './home/home.component';
 import { ContactUsReactiveComponent } from './signals/contact-us-reactive/contact-us-reactive.component';
 import { SignalsBasicsComponent } from './signals/signals-basics/signals-basics.component';
+import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
+import { JobScreenerComponent } from './job-screener/job-screener.component';
 
 export const routes: Routes = [
   {
@@ -27,5 +29,13 @@ export const routes: Routes = [
   {
     path: 'what-are-signals',
     component: SignalsBasicsComponent,
+  },
+  {
+    path: 'ngrx-state-management/banking-choice-example',
+    component: QuestionnaireComponent,
+  },
+  {
+    path: 'ngrx-state-management/job-screener-example',
+    component: JobScreenerComponent,
   },
 ];
