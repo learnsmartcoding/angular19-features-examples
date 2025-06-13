@@ -1,0 +1,50 @@
+.container {
+  max-width: 600px;
+  margin: 40px auto;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+}
+
+.card {
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  margin-top: 20px;
+}
+
+.options button {
+  margin: 12px;
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: #1976d2;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.options button:hover {
+  background-color: #135ba1;
+}
+
+.nav-buttons button {
+  margin-top: 20px;
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+.result {
+  color: #2e7d32;
+  margin-top: 20px;
+}
+
+.summary {
+  background: #f4f4f4;
+  padding: 12px;
+  margin-top: 10px;
+  text-align: left;
+  border-radius: 8px;
+  font-size: 14px;
+}

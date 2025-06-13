@@ -1,5 +1,30 @@
 <div class="container">
-  <h1>Job Role Screener - Next Video!</h1>
+  <h1>Job Role Screener</h1>
 
-  
+  <div *ngIf="(currentQuestion$ | async) as current; else loading">
+    <ng-container *ngIf="current <= 4; else resultBlock">
+      <div class="card">
+        <h3>{{ questions[current - 1].text }}</h3>
+        <div class="options">
+          <button (click)="onSelect(current, 'Yes')">Yes</button>
+          <button (click)="onSelect(current, 'No')">No</button>
+        </div>
+        <div class="nav-buttons">
+          <button (click)="goBack()" [disabled]="current === 1">⬅ Back</button>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+  <ng-template #resultBlock>
+    <div *ngIf="(answers$ | async) as answers">
+      <h2 class="result">🎯 Recommended Role: {{ getRecommendation(answers) }}</h2>
+      <pre class="summary">{{ answers | json }}</pre>
+      <button (click)="reset()">🔁 Start Over</button>
+    </div>
+  </ng-template>
+
+  <ng-template #loading>
+    <p>Loading...</p>
+  </ng-template>
 </div>
