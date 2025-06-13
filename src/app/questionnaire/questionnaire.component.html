@@ -39,7 +39,9 @@
       <p class="recommendation">{{ getRecommendation(answers) }}</p>
     </div>
   </div>
-
+<div>
+    <pre>Data: {{answers$ | async | json}}</pre>
+  </div>
   <footer class="footer">
     <p>Need help? Contact our career support team at <a href="#">learnsmartcoding&#64;gmail.com</a></p>
   </footer>

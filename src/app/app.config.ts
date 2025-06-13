@@ -15,6 +15,7 @@ import { provideStore, StoreModule } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { provideEffects } from '@ngrx/effects';
 import { questionnaireReducer } from './store/banking/reducer';
+import { jobReducer } from './store/job-screener/job.reducer';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -26,7 +27,8 @@ export const appConfig: ApplicationConfig = {
     provideEffects(),
     importProvidersFrom(
       StoreModule.forRoot({
-        questionnaire: questionnaireReducer
+        questionnaire: questionnaireReducer,
+        job: jobReducer,
       })
     ),
   ],
